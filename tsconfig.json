@@ -1,0 +1,8 @@
+{
+  "compilerOptions": {
+    "strict": true,
+    "moduleResolution": "node",
+    "lib": ["ES2015", "DOM"],
+    "allowJs": true
+  }
+}

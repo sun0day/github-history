@@ -1,0 +1,29 @@
+{
+  "name": "github-history",
+  "version": "1.0.0",
+  "description": "A chrome extension to record user behaviors in github.",
+  "main": "index.js",
+  "scripts": {
+    "build": "tsup --config ./tsup.config.ts && cp src/*.css ./dist",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sun0day/github-history.git"
+  },
+  "keywords": [
+    "chrome-extension",
+    "github"
+  ],
+  "author": "sun0day",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/sun0day/github-history/issues"
+  },
+  "homepage": "https://github.com/sun0day/github-history#readme",
+  "devDependencies": {
+    "tsup": "^6.3.0",
+    "typescript": "^4.8.4",
+    "vite": "^3.2.1"
+  }
+}

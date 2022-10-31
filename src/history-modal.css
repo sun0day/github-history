@@ -1,0 +1,18 @@
+#github-history-modal {
+  display: none;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  padding: 12px;
+  transform: translate(-50%, -50%);
+  background: #fafafa;
+}
+
+
+#github-history-modal.hide {
+  display: none;
+}
+
+#github-history-modal.show {
+  display: block;
+}
