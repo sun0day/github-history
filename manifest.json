@@ -2,6 +2,15 @@
   "manifest_version": 3,
   "name": "github-history",
   "version": "1.0",
+  "commands": {
+    "history-modal": {
+      "suggested_key": {
+        "default": "Ctrl+H",
+        "mac": "Command+H"
+      },
+      "description": "Open command menu"
+    }
+  },
   // "icons": {
   //   "16": "images/icon-16.png",
   //   "32": "images/icon-32.png",
@@ -11,11 +20,15 @@
   "permissions": [
     "storage",
     "background",
-    "history"
+    "history",
+    "tabs",
+    "activeTab",
+    "scripting"
   ],
-  "action": {
-    "default_popup": "index.html"
-  },
+  "action": {},
+  // "action": {
+  //   "default_popup": "public/popup.html"
+  // },
   "background": {
     "service_worker": "dist/history-background.mjs"
   },
@@ -25,11 +38,12 @@
         "<all_urls>"
       ],
       "css": [
-        "dist/history-modal.css"
+        "public/history-modal.css"
       ],
       "js": [
         "dist/history.mjs"
-      ]
+      ],
+      "run_at": "document_end"
     }
   ]
 }

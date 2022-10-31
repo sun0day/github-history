@@ -3,6 +3,7 @@
     "strict": true,
     "moduleResolution": "node",
     "lib": ["ES2015", "DOM"],
-    "allowJs": true
+    "allowJs": true,
+    "declaration": false
   }
 }

@@ -1,0 +1,35 @@
+#github-history-modal {
+  
+}
+
+
+#github-history-modal.hide {
+  display: none;
+}
+
+#github-history-modal.show {
+  display: block;
+}
+
+#github-history-modal-body {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  padding: 12px;
+  transform: translate(-50%, -50%);
+  z-index: 2000;
+  background: #ffffff;
+  border-radius: 4px;
+}
+
+#github-history-modal-mask {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  transition: all 0.1s cubic-bezier(0.05, 0.03, 0.35, 1) 0s;
+  z-index: 1000;
+  background: linear-gradient(to right, hsl(210, 30%, 20%), hsl(255, 30%, 25%));
+  opacity: 0.6;
+}

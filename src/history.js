@@ -1,23 +1,5 @@
 import { Modal } from "./history-modal";
 
-const modal = Modal();
-
-window.addEventListener("load", () => {
-  document.body.appendChild(modal);
-});
-
-document.addEventListener("keydown", (e) => {
-  if (e.ctrlKey && e.code === "KeyH") {
-    modal.className = "show";
-  }
-});
-
-document.addEventListener("click", (e) => {
-  if (!modal.contains(e.target)) {
-    modal.className = "hide";
-  }
-});
-
 const send = () => {
   return new Promise((resolve) => {
     chrome.runtime.sendMessage({ type: "history-query" }, (response) => {
@@ -27,4 +9,34 @@ const send = () => {
   });
 };
 
-send();
+const modal = new Modal(send);
+
+
+const listen = () => {
+  // @ts-expect-error
+  chrome.runtime.onMessage.addListener(function (
+    request,
+    sender,
+    sendResponse
+  ) {
+    console.log(request)
+    if (request.type == "history-modal") {
+      modal.toggle()
+    }
+  });
+};
+
+document.addEventListener("keydown", (e) => {
+  if (e.code === "Escape" && modal.visible()) {
+    modal.toggle()
+  }
+});
+
+document.addEventListener("click", (e) => {
+  if (modal.visible() && !modal.contains(e.target)) {
+    modal.toggle()
+  }
+});
+
+listen()
+modal.mount()

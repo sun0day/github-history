@@ -4,7 +4,7 @@
   "description": "A chrome extension to record user behaviors in github.",
   "main": "index.js",
   "scripts": {
-    "build": "tsup --config ./tsup.config.ts && cp src/*.css ./dist",
+    "build": "tsup --config ./tsup.config.ts",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
