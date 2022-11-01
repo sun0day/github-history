@@ -24,9 +24,6 @@ export const isCode = url => {
 }
 
 export const getRepo = url => {
-  if (!isCode(url) && !isPR(url) && !isDiscussion(url) && !isIssue(url)) {
-    return null
-  }
   const result = url.match(/https:\/\/github.com\/([^\/]+\/[^\/]+)/)
 
   return result && result[1]

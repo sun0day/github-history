@@ -2,6 +2,7 @@
   "manifest_version": 3,
   "name": "github-history",
   "version": "1.0",
+  "description": "A chrome extension to track user behaviors(visiting repo, issue, pr, code snippet, discussions) in github. ",
   "commands": {
     "history-modal": {
       "suggested_key": {
