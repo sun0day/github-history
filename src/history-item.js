@@ -32,8 +32,22 @@ export const getRepo = url => {
   return result && result[1]
 }
 
-export const filterItem = items => items.filter(item => {
-  return !!getRepo(item.url)
+export const filterItem = (items, options) => items.filter(item => {
+  if (!options) {
+    return !!getRepo(item.url)
+  }
+
+  const { keyword, type } = options
+
+  if (keyword && item.url.indexOf(keyword) < 0 && item.title.indexOf(keyword) < 0) {
+    return false
+  }
+  const typeKey = type.toLocaleLowerCase()
+
+  if (typeKey === 'all') {
+    return true
+  }
+  return !!item[typeKey]
 })
 
 export const transformItem = items => {

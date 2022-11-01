@@ -1,4 +1,5 @@
 import { Modal } from "./history-modal";
+import { Font } from './history-font'
 
 const send = () => {
   return new Promise((resolve) => {
@@ -10,7 +11,7 @@ const send = () => {
 };
 
 const modal = new Modal(send);
-
+const font = new Font()
 
 const listen = () => {
   // @ts-expect-error
@@ -39,4 +40,5 @@ document.addEventListener("click", (e) => {
 });
 
 listen()
+font.mount()
 modal.mount()
