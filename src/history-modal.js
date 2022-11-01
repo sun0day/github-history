@@ -70,6 +70,9 @@ class Modal {
   }
 
   toggle() {
+    if (!document.getElementById('github-history-modal')) {
+      this.mount()
+    }
     if (this.modal.className.indexOf('hide') > -1) {
       this.fetchData().then(data => {
         this.data = data
