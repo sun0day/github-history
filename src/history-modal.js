@@ -2,13 +2,17 @@ import { filterItem } from "./history-item";
 import { Radio } from "./history-radio";
 
 class Modal {
-  modal = document.createElement("div");
   radio = new Radio(['All', 'Issue', 'PR', 'Code', 'Discussions'])
   data = []
   keyword = ''
 
   constructor(fetchData) {
     this.fetchData = fetchData
+    this.init
+  }
+
+  init() {
+    this.modal = document.createElement("div");
     this.modal.id = "github-history-modal";
     this.modal.className = 'hide'
     this.modal.innerHTML = `
@@ -28,21 +32,23 @@ class Modal {
   }
 
   mount() {
+    this.init()
     document.body.append(this.modal)
+    this.radio.mount(document.getElementById('github-history-footer'))
     document.getElementById('github-history-modal-mask').addEventListener('click', () => this.toggle())
     document.getElementById('github-history-search').addEventListener('change', e => {
       this.keyword = e.target.value
       this.render()
     })
     document.getElementById('github-history-result').addEventListener('click', () => this.toggle())
-    this.radio.mount(document.getElementById('github-history-footer'))
     this.radio.onClick(() => this.render())
   }
 
   render() {
-    const resultDom = document.getElementById('github-history-result')
+    let resultDom = document.getElementById('github-history-result')
     if (!resultDom) {
       this.mount()
+      resultDom = document.getElementById('github-history-result')
     }
 
     const data = filterItem(this.data, { type: this.radio.selectedValue, keyword: this.keyword })
@@ -64,13 +70,13 @@ class Modal {
 
   toggle() {
     if (this.modal.className.indexOf('hide') > -1) {
-      this.clear()
       this.fetchData().then(data => {
         this.data = data
         this.modal.className = 'show'
         this.render()
       })
     } else {
+      this.clear()
       this.modal.className = 'hide'
     }
   }

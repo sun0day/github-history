@@ -1,15 +1,21 @@
 export class Radio {
-  container = document.createElement('ul')
+
   values = []
   selectedValue = undefined
 
   constructor(values) {
     this.values = values
     this.selectedValue = values[0]
+  }
+
+  init() {
+    this.container = document.createElement('ul')
     this.container.id = 'github-history-radio'
   }
 
   mount(parent) {
+    this.init()
+    this.render()
     parent.appendChild(this.container)
   }
 
