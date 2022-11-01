@@ -1,0 +1,1 @@
+function n(){chrome.tabs.query({currentWindow:!0,active:!0},function(e){let t=e[0];chrome.tabs.sendMessage(t.id,{type:"history-modal"});});}document.addEventListener("DOMContentLoaded",function(){n();});
