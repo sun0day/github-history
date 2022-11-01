@@ -1,3 +1,4 @@
+import uniqBy from 'lodash.uniqby'
 const { transformItem, filterItem } = require("./history-item");
 const last7days = 7 * 24 * 3600 * 1000
 
@@ -23,7 +24,7 @@ const listen = () => {
     sendResponse
   ) {
     if (request.type == "history-query") {
-      search().then(data => sendResponse(transformItem(filterItem(data))))
+      search().then(data => sendResponse(transformItem(uniqBy(filterItem(data), 'url'))))
       return true
     }
   });

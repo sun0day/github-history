@@ -18,7 +18,7 @@ class Modal {
     this.modal.innerHTML = `
       <div id='github-history-modal-body'>
         <div id='github-history-header'>
-          <input id='github-history-search' placeholder="type keyword" autofocus>
+          <input id='github-history-search' type='text' placeholder="type keyword" autofocus>
         </div>
         <ul id='github-history-result'>
           
@@ -36,7 +36,7 @@ class Modal {
     document.body.append(this.modal)
     this.radio.mount(document.getElementById('github-history-footer'))
     document.getElementById('github-history-modal-mask').addEventListener('click', () => this.toggle())
-    document.getElementById('github-history-search').addEventListener('change', e => {
+    document.getElementById('github-history-search').addEventListener('input', e => {
       this.keyword = e.target.value
       this.render()
     })

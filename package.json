@@ -25,5 +25,8 @@
     "tsup": "^6.3.0",
     "typescript": "^4.8.4",
     "vite": "^3.2.1"
+  },
+  "dependencies": {
+    "lodash.uniqby": "^4.7.0"
   }
 }

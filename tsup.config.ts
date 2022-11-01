@@ -13,4 +13,6 @@ export default defineConfig({
   treeshake: true,
   minify: true,
   format: ["esm"],
+  bundle: true,
+  noExternal: ["lodash.uniqby"],
 });
