@@ -63,6 +63,7 @@ class Modal {
       </li></a>`
       , '');
     footerDom.childNodes[1].innerHTML = `
+    <span>Search ${this.keyword && `'${this.keyword}'`}</span>
     <span>Results: </span>
     <span>${data.length}</span>
     `

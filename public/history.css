@@ -62,6 +62,7 @@
   margin-top: 0;
   margin-bottom: 0;
   overflow-y: scroll;
+  background: linear-gradient(45deg, #f9f9f9, transparent)
 }
 
 /* #github-history-result::-webkit-scrollbar {
@@ -91,7 +92,7 @@
 }
 
 #github-history-result li:hover {
-  background-color: #f6f6f6;
+  background-color: #f4f4f4;
 }
 
 #github-history-result li:hover::before {
@@ -140,7 +141,7 @@
   color: #21272488;
 }
 
-#github-history-footer .results span:first-of-type {
+#github-history-footer .results span {
   margin-right: 4px;
 }
 
@@ -167,4 +168,4 @@
   background-color: #ffffff;
   border-radius: 4px;
   color: #212724;
-  box-shadow: 0 1px 3px 0 rgb(0 0 0 / 10%), 0 1px 2px 0 rgb(0 0 0 / 6%);
+}
