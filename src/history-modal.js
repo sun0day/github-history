@@ -21,7 +21,6 @@ class Modal {
         </ul>
         <div id='github-history-footer'>
         <span class='results'></span>
-        ${this.radio.render()}
         </div>
       </div>
       <div id='github-history-modal-mask'></div>
@@ -36,6 +35,7 @@ class Modal {
       this.render()
     })
     document.getElementById('github-history-result').addEventListener('click', () => this.toggle())
+    this.radio.mount(document.getElementById('github-history-footer'))
     this.radio.onClick(() => this.render())
   }
 
@@ -64,6 +64,7 @@ class Modal {
 
   toggle() {
     if (this.modal.className.indexOf('hide') > -1) {
+      this.clear()
       this.fetchData().then(data => {
         this.data = data
         this.modal.className = 'show'
@@ -80,6 +81,12 @@ class Modal {
 
   visible() {
     return this.modal.className.indexOf('show') > -1
+  }
+
+  clear() {
+    this.keyword = ''
+    document.getElementById('github-history-search').value = ''
+    this.radio.change('All')
   }
 }
 

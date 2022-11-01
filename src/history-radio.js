@@ -9,12 +9,14 @@ export class Radio {
     this.container.id = 'github-history-radio'
   }
 
+  mount(parent) {
+    parent.appendChild(this.container)
+  }
+
   render() {
     this.container.innerHTML = this.values.reduce((acc, cur) => acc + `
     <li class='${this.selectedValue === cur && 'selected'}'>${cur}</li>
     `, '')
-
-    return this.container.outerHTML
   }
 
   onClick(cb) {
@@ -31,5 +33,10 @@ export class Radio {
       }
       e.preventDefault()
     }, false)
+  }
+
+  change(value) {
+    this.selectedValue = value
+    this.render()
   }
 }
