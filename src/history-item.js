@@ -38,8 +38,12 @@ export const filterItem = (items, options) => items.filter(item => {
   }
 
   const { keyword, type } = options
+  const lowKeyword = keyword.toLocaleLowerCase()
 
-  if (keyword && item.url.indexOf(keyword) < 0 && item.title.indexOf(keyword) < 0) {
+  if (keyword &&
+    item.url.toLocaleLowerCase().indexOf(lowKeyword) < 0 &&
+    item.title.toLocaleLowerCase().indexOf(lowKeyword) < 0
+  ) {
     return false
   }
   const typeKey = type.toLocaleLowerCase()
